@@ -1,31 +1,37 @@
 ---
-title: "DAFT Package Challenge: Understanding Scurvy"
+title: "DAFT Package Challenge: Recreating Scurvy DAGs"
 format: html
 execute:
   echo: false
   eval: true
 ---
 
-# DAFT Package Challenge
+## The Story of Scurvy: A data science Tragedy
 
-## The Story of Scurvy
+For centuries, sailors on long sea voyages suffered from scurvy, a disease that caused weakness, bleeding gums, and eventually death. The cause of scurvy was misunderstood for many years, even though the cure had already been discovered.
 
-For centuries, sailors suffered from scurvy on long voyages. In 1747, James Lind discovered that consuming lemons reduced the disease, though the mechanism remained unknown. Later, an incorrect acid theory misled people, until 1928 when Vitamin C deficiency was identified as the true cause. The following DAGs illustrate how our understanding evolved over time.
+In 1747, naval surgeon James Lind conducted one of the earliest controlled experiments and discovered that sailors who consumed lemons recovered from scurvy. However, the mechanism behind this effect remained unknown.
+
+Over time, people developed an incorrect explanation. They believed the acid in lemons killed bacteria, which was thought to cause scurvy. This misunderstanding led to replacing lemons with weaker acidic substances such as vinegar or limes, which contained much less Vitamin C.
+
+Finally, in 1928, scientists discovered that Vitamin C (ascorbic acid) was the real reason lemons prevented scurvy. This completed the understanding of the disease and resolved the confusion that had lasted for over a century.
+
+The following three Directed Acyclic Graphs (DAGs) illustrate how the understanding of scurvy evolved over time.
 
 ---
 
-## DAG 1: 1747 Observation – Lemons Helped Sailors
+## DAG 1: 1747 Understanding
 
-This DAG represents the earliest understanding: lemons seemed to prevent scurvy, without knowing why.  
+This DAG represents the 1747 understanding. Sailors observed that consuming lemons prevented scurvy, but they did not yet understand the biological mechanism responsible.
 
 ```{python}
 import daft
 import matplotlib.pyplot as plt
 
 pgm = daft.PGM([4,2], origin=[0,0], dpi=150)
-pgm.add_node("lemons","Lemons\nConsumed",1,1,aspect=2.5,scale=1.3,
+pgm.add_node("lemons","Lemons",1,1,aspect=2.5,scale=1.3,
              plot_params={'facecolor':'#FFFACD','edgecolor':'#DAA520','linewidth':2})
-pgm.add_node("scurvy","Scurvy\nReduced",3,1,aspect=2.5,scale=1.3,
+pgm.add_node("scurvy","Scurvy\nPrevention",3,1,aspect=2.5,scale=1.3,
              plot_params={'facecolor':'#ADD8E6','edgecolor':'#000080','linewidth':2})
 pgm.add_edge("lemons","scurvy")
 pgm.render()
@@ -33,28 +39,29 @@ plt.title("1747: Observation - Lemons Helped Sailors")
 plt.show()
 ```
 
-DAG 2: Misguided Belief – Acid Theory
 
-Scientists later assumed that the acid in citrus killed bacteria, mistakenly explaining scurvy prevention.
+## DAG 2: Misguided Belief
+
+This DAG illustrates the incorrect theory that acid in lemons killed bacteria, which supposedly prevented scurvy. This misunderstanding caused the real cure to be overlooked for many years. 
 
 ```{python}
 pgm = daft.PGM([6,2], origin=[0,0], dpi=150)
-pgm.add_node("acid","Acid\n(from citrus)",1,1,aspect=3,scale=1.2,
+pgm.add_node("acid","Acid",1,1,aspect=3,scale=1.2,
              plot_params={'facecolor':'#FFE4E1','edgecolor':'#B22222','linewidth':2})
-pgm.add_node("bacteria","Bacteria\nDestroyed",3,1,aspect=3,scale=1.2,
+pgm.add_node("bacteria","Bacteria\nDeath",3,1,aspect=3,scale=1.2,
              plot_params={'facecolor':'#E6E6FA','edgecolor':'#6A5ACD','linewidth':2})
-pgm.add_node("scurvy","Scurvy\nPrevented?",5,1,aspect=3,scale=1.2,
+pgm.add_node("scurvy","Scurvy\nPrevention",5,1,aspect=3,scale=1.2,
              plot_params={'facecolor':'#B0E0E6','edgecolor':'#00008B','linewidth':2})
 pgm.add_edge("acid","bacteria")
 pgm.add_edge("bacteria","scurvy")
 pgm.render()
-plt.title("Misguided Belief: Acid Theory")
+plt.title("Misguided Belief - Acid Theory")
 plt.show()
 ```
 
-DAG 3: 1928 Discovery – Vitamin C Prevents Scurvy
+## DAG 3: 1928 Understanding
 
-The complete explanation revealed Vitamin C deficiency as the true cause of scurvy, correcting earlier misunderstandings
+This DAG represents the correct modern understanding. Vitamin C deficiency causes scurvy, and consuming foods rich in Vitamin C (such as lemons) prevents the disease. 
 
 ```{python}
 import daft
@@ -64,9 +71,9 @@ import matplotlib.pyplot as plt
 pgm = daft.PGM([5,2], origin=[0,0], dpi=150)
 
 # Add nodes
-pgm.add_node("vitamin_c", "Vitamin C\n(Intake)", 1.5, 1, aspect=2.8, scale=1.3,
+pgm.add_node("vitamin_c", "Vitamin C", 1.5, 1, aspect=2.8, scale=1.3,
              plot_params={'facecolor':'#98FB98','edgecolor':'#006400','linewidth':2})
-pgm.add_node("scurvy", "Scurvy\nPrevented", 3.8, 1, aspect=2.8, scale=1.3,
+pgm.add_node("scurvy", "Scurvy\nPrevention", 3.8, 1, aspect=2.8, scale=1.3,
              plot_params={'facecolor':'#ADD8E6','edgecolor':'#00008B','linewidth':2})
 
 # Add edges
@@ -77,5 +84,7 @@ pgm.render()
 plt.title("1928: Vitamin C Prevents Scurvy")
 plt.show()
 ```
+1928 Discovery – Vitamin C Prevents Scurvy. 
+
 
 
