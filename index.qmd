@@ -6,15 +6,14 @@ execute:
   eval: true
 ---
 
-## The Story of Scurvy: A data science Tragedy
 
-For centuries, sailors on long sea voyages suffered from scurvy, a disease that caused weakness, bleeding gums, and eventually death. The cause of scurvy was misunderstood for many years, even though the cure had already been discovered.
+## The Story of Scurvy: A Data Science Tragedy
 
-In 1747, naval surgeon James Lind conducted one of the earliest controlled experiments and discovered that sailors who consumed lemons recovered from scurvy. However, the mechanism behind this effect remained unknown.
+For centuries, sailors on long sea voyages suffered from scurvy, a disease caused by Vitamin C deficiency. In 1747, naval surgeon James Lind conducted one of the earliest controlled experiments and found that sailors who consumed lemons recovered from scurvy, although the reason was not yet understood.
 
-Over time, people developed an incorrect explanation. They believed the acid in lemons killed bacteria, which was thought to cause scurvy. This misunderstanding led to replacing lemons with weaker acidic substances such as vinegar or limes, which contained much less Vitamin C.
+Over time, an incorrect theory emerged that the acid in lemons killed bacteria responsible for scurvy. This misunderstanding led to replacing lemons with weaker acidic substances such as vinegar or limes, which contained much less Vitamin C.
 
-Finally, in 1928, scientists discovered that Vitamin C (ascorbic acid) was the real reason lemons prevented scurvy. This completed the understanding of the disease and resolved the confusion that had lasted for over a century.
+In 1928, scientists finally discovered that Vitamin C (ascorbic acid) prevents scurvy, providing the correct explanation for why citrus fruits were effective.
 
 The following three Directed Acyclic Graphs (DAGs) illustrate how the understanding of scurvy evolved over time.
 
